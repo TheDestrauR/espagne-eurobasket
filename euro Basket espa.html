@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>España - FIBA EuroBasket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffcc00, #ff5733);
+      color: #fff;
+    }
+
+    header {
+      background-color: #c70039;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      margin: 0;
+      font-size: 3rem;
+      cursor: default;
+    }
+
+    section {
+      padding: 2rem;
+    }
+
+    h2, h3, p, li {
+      cursor: default;
+    }
+
+    .year-list {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .year-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .year-list li {
+      padding: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    .carousel {
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 700px;
+      overflow: hidden;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .carousel-images {
+      display: flex;
+      width: 300%;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      flex: 1 0 100%;
+      display: block;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img:hover {
+      transform: scale(1.05);
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.6);
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #900c3f;
+    }
+
+    /* Animación para el carrusel (más lento) */
+    @keyframes slide {
+      0%   { transform: translateX(0%); }
+      33%  { transform: translateX(-100%); }
+      66%  { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    /* Intervalo para animación automática (más lento) */
+    .carousel-images {
+      animation: slide 15s infinite;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>España - FIBA EuroBasket</h1>
+  </header>
+
+  <section>
+    <h2>Una dinastía europea</h2>
+    <p>
+      Desde 2007, España ha demostrado su dominio en el baloncesto europeo, terminando entre los 3 primeros de todas las ediciones del FIBA EuroBasket. Gracias a jugadores emblemáticos como Pau Gasol, Ricky Rubio y Sergio Llull, la selección nacional española ha mantenido una consistencia impresionante.
+    </p>
+
+    <div class="year-list">
+      <h3>Palmarés desde 2007:</h3>
+      <ul>
+        <li>2007: Medalla de plata</li>
+        <li>2009: Medalla de oro</li>
+        <li>2011: Medalla de oro</li>
+        <li>2013: Medalla de bronce</li>
+        <li>2015: Medalla de oro</li>
+        <li>2017: Medalla de bronce</li>
+        <li>2022: Medalla de oro</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="carousel">
+    <div class="carousel-images">
+      <img src="https://redac.trashtalk.co/wp-content/uploads/2022/09/espagne-18-septembre-2022.jpg" alt="Victoria 2022">
+      <img src="https://medias.lequipe.fr/img-photo-jpg/rudy-gobert-et-willy-hernangomez-a-la-lutte-lors-du-france-espagne-a-reau-l-equipe/1500000001688721/0:0,1998:1332-1200-800-75/e0642.jpg" alt="Francia España duelo">
+      <img src="https://www.triatlonnoticias.com/wp-content/uploads/2022/09/img_63273a60175b0.jpg" alt="Celebración equipo">
+    </div>
+
+    <div class="carousel-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - Creado por Aurélien, con sus habilidades de código limitadas</p>
+  </footer>
+
+  <script>
+    const dots = document.querySelectorAll('.dot');
+    const images = document.querySelector('.carousel-images');
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        // Cambiar la transformación para mostrar la imagen seleccionada
+        images.style.transform = `translateX(-${index * 100}%)`;
+
+        // Eliminar la clase 'active' de todos los puntos
+        dots.forEach(d => d.classList.remove('active'));
+
+        // Agregar la clase 'active' al punto clicado
+        dot.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
